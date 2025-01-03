@@ -1,5 +1,11 @@
-import ThemeOptions from '@/components/ui/theme-options';
+import Logo from '@/icons/logo.svg';
+import ThemeSwitch from '@/components/ThemeSwitch';
 
 export default function Home() {
-  return <ThemeOptions />;
+  return (
+    <div className="wrapper">
+      <Logo />
+      <ThemeSwitch />
+    </div>
+  );
 }

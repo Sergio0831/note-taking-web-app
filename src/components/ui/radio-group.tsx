@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { Circle } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -16,19 +15,28 @@ RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
 
 const RadioGroupItem = React.forwardRef<
   React.ComponentRef<typeof RadioGroupPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
->(({ className, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> & {
+    label: string;
+    text: string;
+    icon: React.ReactElement;
+  }
+>(({ label, text, icon, className, ...props }, ref) => {
   return (
     <RadioGroupPrimitive.Item
       ref={ref}
       className={cn(
-        'aspect-square h-4 w-4 rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+        'p-4 flex gap-x-4 items-center rounded-xl border-[1px] data-[state=checked]:bg-[var(--clr-neutral-100)] dark:data-[state=checked]:bg-[var(--clr-neutral-800)] border-[var(--clr-neutral-200)] dark:border-[var(--clr-neutral-700)] dark:data-[state=checked]:border-[var(--clr-neutral-700)] group',
         className,
       )}
       {...props}>
-      <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-        <Circle className="h-2.5 w-2.5 fill-current text-current" />
-      </RadioGroupPrimitive.Indicator>
+      <div className="p-2 rounded-xl border-[1px] border-[var(--clr-neutral-200)] dark:border-[var(--clr-neutral-700)]">
+        {icon}
+      </div>
+      <div className="text-left">
+        <h4>{label}</h4>
+        <p>{text}</p>
+      </div>
+      <span className="w-4 h-4 group-data-[state=checked]:border-blue-500 group-data-[state=checked]:border-4 rounded-full border-2 border-[var(--clr-neutral-200)] dark:border-[var(--clr-neutral-600)]" />
     </RadioGroupPrimitive.Item>
   );
 });

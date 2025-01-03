@@ -2,11 +2,12 @@
 
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { Button } from './button';
-import SunIcon from '../../../public/icons/icon-sun.svg';
-import MoonIcon from '../../../public/icons/icon-moon.svg';
-import SystemTheme from '../../../public/icons/icon-system-theme.svg';
-import { RadioGroup, RadioGroupItem } from './radio-group';
+
+import SunIcon from '../icons/icon-sun.svg';
+import MoonIcon from '../icons/icon-moon.svg';
+import SystemTheme from '../icons/icon-system-theme.svg';
+import { RadioGroup, RadioGroupItem } from './ui/radio-group';
+import { Button } from './ui/button';
 
 const options = [
   {
@@ -29,7 +30,7 @@ const options = [
   },
 ];
 
-const ThemeOptions = () => {
+const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const [selectedTheme, setSelectedTheme] = useState(theme || 'system');
@@ -43,7 +44,7 @@ const ThemeOptions = () => {
   }
 
   return (
-    <div>
+    <div className="">
       <RadioGroup value={selectedTheme} onValueChange={setSelectedTheme}>
         {options.map((option) => (
           <RadioGroupItem
@@ -61,4 +62,4 @@ const ThemeOptions = () => {
   );
 };
 
-export default ThemeOptions;
+export default ThemeSwitch;

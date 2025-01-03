@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'tailwindcss';
 
 export default {
@@ -11,6 +12,56 @@ export default {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)'],
+      },
+      fontSize: {
+        'preset-1': [
+          'var(--font-xl)',
+          {
+            lineHeight: 'var(--line-height-base)',
+            letterSpacing: 'var(--letter-spacing-tight)',
+            fontWeight: 'var(--font-bold)',
+          },
+        ],
+        'preset-2': [
+          'var(--font-lg)',
+          {
+            lineHeight: 'var(--line-height-base)',
+            letterSpacing: 'var(--letter-spacing-tight)',
+            fontWeight: 'var(--font-bold)',
+          },
+        ],
+        'preset-3': [
+          'var(--font-md)',
+          {
+            lineHeight: 'var(--line-height-base)',
+            letterSpacing: 'var(--letter-spacing-medium-tight)',
+            fontWeight: 'var(--font-semibold)',
+          },
+        ],
+        'preset-4': [
+          'var(--font-sm)',
+          {
+            lineHeight: 'var(--line-height-base)',
+            letterSpacing: 'var( --letter-spacing-slight-tight)',
+            fontWeight: 'var(--font-medium)',
+          },
+        ],
+        'preset-5': [
+          'var(--font-sm)',
+          {
+            lineHeight: 'var(--line-height-base)',
+            letterSpacing: 'var( --letter-spacing-slight-tight)',
+            fontWeight: 'var(--font-regular)',
+          },
+        ],
+        'preset-6': [
+          'var(--font-xs)',
+          {
+            lineHeight: 'var(--line-height-base)',
+            letterSpacing: 'var( --letter-spacing-slight-tight)',
+            fontWeight: 'var(--font-regular)',
+          },
+        ],
       },
       colors: {
         blue: {
@@ -56,6 +107,7 @@ export default {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        authbg: 'var(--authbg)',
       },
       borderRadius: {
         xl: 'calc(var(--radius) + 4px)',

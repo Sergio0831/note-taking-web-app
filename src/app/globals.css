@@ -25,7 +25,7 @@
     --clr-green-50: #e0faec;
     --clr-green-500: #21c16b;
 
-    --background: 0 0% 100%;
+    --background: (0 0% 100%);
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -51,6 +51,28 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
     --icon: var(--clr-neutral-950);
+    --authbg: var(--clr-neutral-100);
+
+    /* Font size */
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-md: 1rem;
+    --font-lg: 1.25rem;
+    --font-xl: 1.5rem;
+
+    /* Font weight */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Line height */
+    --line-height-base: 120%;
+
+    /* Letter spacing */
+    --letter-spacing-tight: -0.5px;
+    --letter-spacing-medium-tight: -0.3px;
+    --letter-spacing-slight-tight: -0.2px;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -78,6 +100,7 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
     --icon: var(--clr-base-white);
+    --authbg: var(--clr-neutral-700);
   }
 }
 
@@ -87,5 +110,11 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  .wrapper {
+    @apply max-w-[69rem] m-auto px-8;
   }
 }
