@@ -1,7 +1,12 @@
-import AuthHeader from '@/components/auth/AuthHeader';
+import CardWithForm from '@/components/forms/CardWithForm';
+import LoginForm from '@/components/forms/LoginForm';
 
 const LoginPage = () => {
-  return <AuthHeader />;
+  return (
+    <CardWithForm>
+      <LoginForm />
+    </CardWithForm>
+  );
 };
 
 export default LoginPage;

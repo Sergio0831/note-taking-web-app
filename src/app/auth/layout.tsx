@@ -1,6 +1,8 @@
 const AuthLayout = ({ children }: React.PropsWithChildren) => {
   return (
-    <main className="w-full h-dvh grid items-center justify-center bg-authbg">{children}</main>
+    <main className="bg-authbg px-4 sm:px-8">
+      <div className="wrapper-grid items-center justify-center h-dvh">{children}</div>
+    </main>
   );
 };
 
