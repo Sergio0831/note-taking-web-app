@@ -1,9 +1,10 @@
 'use client';
 
 import { useFormContext } from 'react-hook-form';
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
+import { FormControl, FormField, FormItem, FormLabel, FormMessage, useFormField } from '../ui/form';
 import { Input } from '../ui/input';
 import { cn } from '@/lib/utils';
+import { useId } from 'react';
 
 type Props<T> = {
   fieldTitle: string;
@@ -19,6 +20,7 @@ const InputWithLabel = <T,>({
   ...props
 }: Props<T>) => {
   const form = useFormContext();
+  const id = useId();
 
   return (
     <FormField
@@ -26,10 +28,10 @@ const InputWithLabel = <T,>({
       name={nameInSchema}
       render={({ field }) => (
         <FormItem>
-          <FormLabel htmlFor={nameInSchema}>{fieldTitle}</FormLabel>
+          <FormLabel htmlFor={id}>{fieldTitle}</FormLabel>
           <FormControl>
             <Input
-              id={nameInSchema}
+              id={id}
               {...field}
               {...props}
               className={cn('', className)}

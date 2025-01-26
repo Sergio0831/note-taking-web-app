@@ -7,6 +7,7 @@ import { LoginSchema, LoginSchemaType } from '@/schemas';
 import { useTransition } from 'react';
 import InputWithLabel from '../inputs/InputWithLabel';
 import { Button } from '../ui/button';
+import PasswordInputWithLabel from '../inputs/PasswordInputWithLabel';
 
 const LoginForm = () => {
   const [isPending, setTransition] = useTransition();
@@ -33,7 +34,11 @@ const LoginForm = () => {
           nameInSchema="email"
           placeholder="email@example.com"
         />
-        <InputWithLabel<LoginSchemaType> fieldTitle="Password" nameInSchema="password" />
+        <PasswordInputWithLabel<LoginSchemaType>
+          fieldTitle="Password"
+          newPassword
+          nameInSchema="password"
+        />
         <Button className="w-full">Login</Button>
       </form>
     </Form>
