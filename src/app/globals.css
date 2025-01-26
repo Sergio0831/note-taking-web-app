@@ -1,6 +1,104 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-inter);
+
+  --text-preset-1: var(--font-xl);
+  --text-preset-1--line-height: var(--line-height-base);
+  --text-preset-1--letter-spacing: var(--letter-spacing-tight);
+  --text-preset-1--font-weight: var(--font-bold);
+  --text-preset-2: var(--font-lg);
+  --text-preset-2--line-height: var(--line-height-base);
+  --text-preset-2--letter-spacing: var(--letter-spacing-tight);
+  --text-preset-2--font-weight: var(--font-bold);
+  --text-preset-3: var(--font-md);
+  --text-preset-3--line-height: var(--line-height-base);
+  --text-preset-3--letter-spacing: var(--letter-spacing-medium-tight);
+  --text-preset-3--font-weight: var(--font-semibold);
+  --text-preset-4: var(--font-sm);
+  --text-preset-4--line-height: var(--line-height-base);
+  --text-preset-4--letter-spacing: var(--letter-spacing-slight-tight);
+  --text-preset-4--font-weight: var(--font-medium);
+  --text-preset-5: var(--font-sm);
+  --text-preset-5--line-height: var(--line-height-base);
+  --text-preset-5--letter-spacing: var(--letter-spacing-slight-tight);
+  --text-preset-5--font-weight: var(--font-regular);
+  --text-preset-6: var(--font-xs);
+  --text-preset-6--line-height: var(--line-height-base);
+  --text-preset-6--letter-spacing: var(--letter-spacing-slight-tight);
+  --text-preset-6--font-weight: var(--font-regular);
+
+  --color-blue-500: var(--clr-blue-500);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-border-secondary: var(--border-secondary);
+
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-authbg: var(--authbg);
+
+  --radius-radius-4: calc(var(--radius) - 4px);
+  --radius-radius-6: calc(var(--radius) - 2px);
+  --radius-radius-8: var(--radius);
+  --radius-radius-10: calc(var(--radius) + 2px);
+  --radius-radius-12: calc(var(--radius) + 4px);
+  --radius-radius-16: calc(var(--radius) * 2);
+  --radius-radius-20: calc(var(--radius) + 12px);
+  --radius-radius-24: calc(var(--radius) * 3);
+
+  --shadow-sm: 0 4px 6px 0 rgba(240, 240, 240, 0.6);
+  --shadow-lg: 0 0.5rem 0.75rem 0 rgba(240, 240, 240, 0.6);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility wrapper-grid {
+  @apply w-full max-w-[69rem] m-auto gap-x-6 grid grid-cols-4 lg:grid-cols-12 md:grid-cols-10 sm:grid-cols-8;
+}
 
 @layer base {
   :root {
@@ -104,11 +202,5 @@
   }
   body {
     @apply font-sans bg-background text-foreground;
-  }
-}
-
-@layer utilities {
-  .wrapper-grid {
-    @apply w-full max-w-[69rem] m-auto gap-x-6 grid grid-cols-4 lg:grid-cols-12 md:grid-cols-10 sm:grid-cols-8;
   }
 }

@@ -86,7 +86,7 @@ const PasswordInputWithLabel = <T,>({
                 aria-label={isVisible ? 'Hide password' : 'Show password'}
                 aria-pressed={isVisible}
                 aria-controls="password"
-                className="absolute inset-y-0 end-0 flex h-full items-center justify-center px-4 rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+                className="absolute inset-y-0 end-0 flex h-full items-center justify-center px-4 rounded-md ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
                 {isVisible ? <HidePassword /> : <ShowPassword />}
               </button>
             </div>
